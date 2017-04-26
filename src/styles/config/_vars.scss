@@ -1,0 +1,60 @@
+$base-font-px: 16; //px
+$grid-cols: 12;
+
+$core-palette: (
+  'ebony-clay': #28323c,
+  'silver-chalice': #a2a2a2,
+  'vista-white': #fbf5f6,
+  'fuzzy-wuzzy-brown': #bf5656,
+  'monte-carlo': #7accb1,
+  'cornflower-blue': #7399e6
+);
+
+$palette: (
+  'positive'      : map-get($core-palette, 'monte-carlo'),
+  'attention'     : map-get($core-palette, 'cornflower-blue'),
+  'negative'      : map-get($core-palette, 'fuzzy-wuzzy-brown'),
+  'light'         : map-get($core-palette, 'vista-white'),
+  'dark'          : map-get($core-palette, 'ebony-clay'),
+  'neutral'       : map-get($core-palette, 'silver-chalice')
+);
+
+$spacing: (
+  'xs' : 4px,
+  'sm' : 8px,
+  'md' : 16px,
+  'lg' : 32px,
+  'xl' : 64px,
+  'xxl' : 128px
+);
+
+$font-families: (
+  'body'    : (-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif),
+  'code'    : (monospace),
+);
+
+$font-sizes: (
+  'h1': 36px,
+  'h2': 32px,
+  'h3': 28px,
+  'h4': 24px,
+  'h5': 20px,
+  'h6': 16px,
+  'body': 16px
+);
+
+$font-lineheights: (
+  'h1': 40px,
+  'h2': 36px,
+  'h3': 32px,
+  'h4': 28px,
+  'h5': 24px,
+  'h6': 20px,
+  'body': 20px
+);
+
+$breakpoints: (
+  'sm': em(240),
+  'md': em(360),
+  'lg': em(768)
+);

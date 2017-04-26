@@ -9,7 +9,7 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
-    app: './src/main.js'
+    app: './src/main.ts'
   },
   output: {
     path: config.build.assetsRoot,
@@ -21,7 +21,13 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
-      '@': resolve('src')
+      'vue$': 'vue/dist/vue.esm.js',
+      '@': resolve('src'),
+      '@assets': resolve('src/assets'),
+      '@styles': resolve('src/styles'),
+      '@shared': resolve('src/components/shared'),
+      '@views': resolve('src/components/views'),
+      '@forms': resolve('src/components/forms')
     }
   },
   module: {
@@ -41,24 +47,25 @@ module.exports = {
         options: vueLoaderConfig
       },
       {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        include: [resolve('src'), resolve('test')]
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url-loader',
+        test: /\.ts$/,
+        loader: 'ts-loader',
+        exclude: /node_modules/,
         options: {
-          limit: 10000,
-          name: utils.assetsPath('img/[name].[hash:7].[ext]')
+          appendTsSuffixTo: [/\.vue$/]
         }
       },
       {
-        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        test: /\.svg$/,
+        loader: 'svg-sprite-loader?' + JSON.stringify({
+          regExp: './assets/icons/(.*)\\.svg'
+        })
+      },
+      {
+        test: /\.(png|jpe?g|gif)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+          name: utils.assetsPath('img/[hash:5].[name].[ext]')
         }
       }
     ]

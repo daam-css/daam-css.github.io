@@ -1,7 +1,5 @@
 <template>
-  <div id="app">
-    <router-view></router-view>
-  </div>
+  site nav
 </template>
 
 <script lang="ts">
@@ -9,14 +7,13 @@ import Vue from "vue"
 import Component from "vue-class-component"
 
 @Component({
-  name: "App",
+  name: "site-nav"
 })
 
-export default class App extends Vue {
-  
+export default class SiteNav extends Vue {
 }
 </script>
 
 <style lang="scss">
-
+  
 </style>
